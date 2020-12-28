@@ -93,3 +93,41 @@ https://marketplace.visualstudio.com/items?itemName=RedVanWorkshop.explorer-excl
 https://randomuser.me/
 
 https://www.json-generator.com/
+
+
+# Hints
+## Use SSL in WSL and trust certs from Windows store
+
+__Run on commandline (Windows 10)__
+
+`dotnet dev-certs https --clean`
+
+`dotnet dev-certs https --trust`
+
+__Install certificate from course__ 
+
+(see assets, section 1 in udemy course)
+
+	1. Double click on the certificate (server.crt)
+	2. Click on the button “Install Certificate …”
+	3. Select whether you want to store it on user level or on machine level
+	4. Click “Next”
+	5. Select “Place all certificates in the following store”
+	6. Click “Browse”
+	7. Select “Trusted Root Certification Authorities”
+	8. Click “Ok”
+	9. Click “Next”
+	10. Click “Finish”
+
+
+__Run on commandline with admin privileges (Windows 10)__
+	
+`dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p <cryptic-password>`
+
+__Run on WSL (Z-Shell)__
+
+Add to `~/.zshrc` (or `~/.bashrc` in case of Bash)
+
+    export ASPNETCORE_Kestrel__Certificates__Default__Password="<cryptic-password>" 
+    export ASPNETCORE_Kestrel__Certificates__Default__Path=/mnt/c/Users/user-name/.aspnet/https/aspnetapp.pfx
+	
