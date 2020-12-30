@@ -94,6 +94,7 @@ https://randomuser.me/
 
 https://www.json-generator.com/
 
+https://jwt.io/
 
 # Hints
 ## Use SSL in WSL and trust certs from Windows store
